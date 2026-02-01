@@ -6,19 +6,17 @@ on:
       - main
 
 jobs:
-  test:
+  build:
     runs-on: self-hosted
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Runner info
+      - name: Build Docker image
         run: |
-          echo "Runner OK"
-          whoami
-          uname -a
+          docker build -t devops-lab:ci
 
-      - name: Docker check
+      - name: Run container
         run: |
-          docker version
+          docker run --rm devops-lab:ci
           docker ps
