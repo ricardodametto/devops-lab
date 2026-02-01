@@ -16,13 +16,14 @@ jobs:
         run: docker info
       
       - name: List files (debug)
+
         run: ls -lha
 
       - name: Build Docker image
-         run: |
-           docker build -t devops-lab:ci
+        run: |
+           docker build -t devops-lab:teste
 
       -  name: Run container
          run: |
-           docker run --rm devops-lab:ci .
+           docker run --rm devops-lab:teste .
            
