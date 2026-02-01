@@ -1,0 +1,24 @@
+name: Runner Sanity Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Runner info
+        run: |
+          echo "Runner OK"
+          whoami
+          uname -a
+
+      - name: Docker check
+        run: |
+          docker version
+          docker ps
