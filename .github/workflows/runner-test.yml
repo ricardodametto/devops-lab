@@ -9,14 +9,20 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build Docker image
-        run: |
-          docker build -t devops-lab:ci
+      - name: Docker info (debug)
+        run: docker info
+      
+      - name: List files (debug)
+        run: ls -lha
 
-      - name: Run container
-        run: |
-          docker run --rm devops-lab:ci .
-          docker ps
+       - name: Build Docker image
+         run: |
+           docker build -t devops-lab:ci
+
+      -  name: Run container
+         run: |
+           docker run --rm devops-lab:ci .
+           
