@@ -21,9 +21,9 @@ jobs:
 
       - name: Build Docker image
         run: |
-           docker build -t devops-lab:teste .
+           docker build -t --no-cache devops-lab:teste .
 
       -  name: Run container
          run: |
-           docker run --rm devops-lab:teste .
+           docker run --rm devops-lab:teste
            
